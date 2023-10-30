@@ -1,0 +1,123 @@
+Mi Aplicación de Recetas
+
+Bienvenido a mi aplicación de recetas. Esta aplicación te permite explorar y compartir recetas de cocina. A continuación, encontrarás una guía detallada de las rutas y vistas principales de la aplicación.
+
+## Configuración del Entorno
+
+Asegúrate de tener Python y Django instalados en tu entorno. Clona este repositorio a tu computadora. Luego, sigue estos pasos:
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+
+    Accede a la aplicación en tu navegador en http://localhost:8000.
+
+El usuario administrador es 
+Usuario: Fabiola
+Contraseña : 12345678
+
+Rutas y Vistas Principales
+
+    Inicio: Página de inicio.
+        URL: /
+        Vista: inicio
+    Acerca de: Información sobre la aplicación.
+        URL: /about/
+        Vista: about
+
+Autores
+
+    Lista de Autores: Ver la lista de autores.
+        URL: /autores/
+        Vista: lista_autores
+    Crear Autor: Agregar un nuevo autor.
+        URL: /autores/crear/
+        Vista: crear_autor
+    Editar Autor: Modificar información de un autor existente.
+        URL: /autores/editar/<nombre_autor>/
+        Vista: editar_autor
+    Eliminar Autor: Eliminar un autor existente.
+        URL: /autores/eliminar/<nombre_autor>/
+        Vista: eliminar_autor
+
+Categorías
+
+    Lista de Categorías: Ver la lista de categorías.
+        URL: /categorias/
+        Vista: lista_categorias
+    Crear Categoría: Agregar una nueva categoría.
+        URL: /categorias/crear/
+        Vista: crear_categoria
+    Editar Categoría: Modificar información de una categoría existente.
+        URL: /categorias/editar/<nombre_categoria>/
+        Vista: editar_categoria
+    Eliminar Categoría: Eliminar una categoría existente.
+        URL: /categorias/eliminar/<nombre_categoria>/
+        Vista: eliminar_categoria
+
+Ingredientes
+
+    Lista de Ingredientes: Ver la lista de ingredientes.
+        URL: /ingredientes/
+        Vista: lista_ingredientes
+    Crear Ingrediente: Agregar un nuevo ingrediente.
+        URL: /ingredientes/crear/
+        Vista: crear_ingrediente
+    Editar Ingrediente: Modificar información de un ingrediente existente.
+        URL: /ingredientes/editar/<nombre_ingrediente>/
+        Vista: editar_ingrediente
+    Eliminar Ingrediente: Eliminar un ingrediente existente.
+        URL: /ingredientes/eliminar/<nombre_ingrediente>/
+        Vista: eliminar_ingrediente
+
+Recetas
+
+    Lista de Recetas: Ver la lista de recetas.
+        URL: /recetas/
+        Vista: lista_recetas
+    Crear Receta: Agregar una nueva receta.
+        URL: /recetas/crear/
+        Vista: crear_receta
+    Editar Receta: Modificar información de una receta existente.
+        URL: /recetas/editar/<titulo_receta>/
+        Vista: editar_receta
+    Eliminar Receta: Eliminar una receta existente.
+        URL: /recetas/eliminar/<titulo_receta>/
+        Vista: eliminar_receta
+
+Blog
+
+    Blog de Libros: Página de blog.
+        URL: /blog/
+        Vista: blog
+
+Búsqueda
+
+    Búsqueda Global: Realizar búsquedas en la aplicación.
+        URL: /buscar_global/
+        Vista: busqueda_global
+
+Usuarios
+
+    Registro: Registrarse como usuario.
+        URL: /registro/
+        Vista: register
+    Inicio de Sesión: Iniciar sesión como usuario registrado.
+        URL: /iniciarsesion/
+        Vista: iniciar_sesion
+    Perfil de Usuario: Ver el perfil del usuario.
+        URL: /perfil/
+        Vista: perfil
+    Editar Perfil de Usuario: Modificar información del perfil de usuario.
+        URL: /perfileditar/
+        Vista: editar_perfil
+    Editar Avatar de Usuario: Cambiar la imagen de perfil.
+        URL: /perfileditar/edit-avatar/
+        Vista: edit_avatar
+    Eliminar Perfil de Usuario: Eliminar el perfil de usuario.
+        URL: /perfileliminar/
+        Vista: eliminar_perfil
+    Cerrar Sesión: Cerrar la sesión de usuario.
+        URL: /cerrarsesion/
+        Vista: cerrar_sesion
+    Cambiar Contraseña: Cambiar la contraseña del usuario.
+        URL: /cambiarcontrasena/
