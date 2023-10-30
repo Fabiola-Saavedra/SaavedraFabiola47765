@@ -1,0 +1,34 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-4">Editar categoria</h1>
+            <p class="lead">Selecciona una categoria y realiza las modificaciones necesarias:</p>
+
+            <form action="" method="POST" class="registration-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="categoria">Selecciona un género:</label>
+                    <select name="categoria" id="categoria" class="form-control">
+                        <option value="{{ categoria.nombre }}" selected>{{ categoria.nombre }}</option>
+                        {% for categoria in categorias %}
+                            <option value="{{ categoria.nombre }}">{{ categoria.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+
+            <a href="{% url 'lista_categorias' %}" class="btn btn-secondary">Volver a la lista de categoria</a>
+        </div>
+    </div>
+</header>
+{% endblock %}

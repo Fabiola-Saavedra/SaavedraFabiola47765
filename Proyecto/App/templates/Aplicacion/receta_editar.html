@@ -1,0 +1,37 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-4">Editar Recetas</h1>
+            <p class="lead">Selecciona una Receta y realiza las modificaciones necesarias:</p>
+
+            <form action="" method="POST" class="registration-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="titulo_receta">Selecciona una receta:</label>
+                    <select name="titulo_receta" id="titulo_receta" class="form-control">
+                        <option value="{{ receta.titulo }}" selected>{{ receta.titulo }}</option>
+                        {% for receta in recetas %}
+                            <option value="{{ receta.titulo }}">{{ receta.titulo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+
+            <a href="{% url 'lista_recetas' %}" class="btn btn-secondary">Lista Recetas</a>
+            <a href="{% url 'editar_receta' receta.titulo %}" class="btn btn-secondary">Editar</a>
+            <a href="{% url 'eliminar_receta' receta.titulo %}" class="btn btn-danger">Eliminar</a>
+            <a href="{% url 'Inicio' %}" class="btn btn-secondary">Inicio</a>
+        </div>
+    </div>
+</header>
+{% endblock %}

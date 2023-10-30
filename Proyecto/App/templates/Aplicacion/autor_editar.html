@@ -1,0 +1,37 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-4">Editar Autor</h1>
+            <p class="lead">Selecciona un autor y realiza las modificaciones necesarias:</p>
+
+            <form action="" method="POST" class="registration-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="autor">Selecciona un autor:</label>
+                    <select name="autor" id="autor" class="form-control">
+                        <option value="{{ autor.user }}" selected>{{ autor.user }}</option>
+                        {% for autor in autores %}
+                            <option value="{{ autor.user }}">{{ autor.user }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+
+            <a href="{% url 'lista_autores' %}" class="btn btn-secondary">Lista Autores</a>
+            <a href="{% url 'editar_autor' autor.user %}" class="btn btn-secondary">Editar</a>
+            <a href="{% url 'eliminar_autor' autor.user %}" class="btn btn-danger">Eliminar</a>
+            <a href="{% url 'Inicio' %}" class="btn btn-secondary">Inicio</a>
+        </div>
+    </div>
+</header>
+{% endblock %}

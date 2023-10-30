@@ -1,0 +1,68 @@
+{% extends "Aplicacion/padre.html" %}
+{% load static %}
+
+{% block contenidoquecambiar %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container text-center text-white py-5">
+            <h1 class="display-4 text-black">¡Bienvenidos a Mi Página Web!</h1>
+            <p class="lead text-black">Explora y conoce más acerca de mí y mi proyecto</p>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <h2 class="display-4 mb-4">Acerca de Mí</h2>
+                        <p class="lead mb-4">¡Hola! Mi nombre es Fabiola Saavedra y este fue un proyecto para Coderhouse </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image text-center">
+                        <img src="{% static 'Aplicacion/img/developer.jpg' %}" alt="Fabiola Saavedra" class="img-fluid rounded-circle" style="max-width: 80%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="feature-item text-center mb-4">
+                        <i class="bi bi-check-circle icon"></i>
+                        <h3>Experiencia en Python</h3>
+                        <p>Desarrollo de aplicaciones Python a medida.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-item text-center mb-4">
+                        <i class="bi bi-code icon"></i>
+                        <h3>Proyectos Desafiantes</h3>
+                        <p>Me encanta enfrentar desafíos de programación.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-item text-center mb-4">
+                        <i class="bi bi-trophy icon"></i>
+                        <h3>Resultados Exitosos</h3>
+                        <p>Comprometido con ofrecer soluciones exitosas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact bg-primary text-white text-center py-5">
+        <div class="container">
+            <h2 class="display-4">¡Contáctame!</h2>
+            <p class="lead">Envía un correo electrónico a <a href="mailto:fabiola.saavedracarvajal@gmail.com" class="text-white">fabiola.saavedracarvajal@gmail.com</a></p>
+        </div>
+    </section>
+{% endblock %}

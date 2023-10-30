@@ -1,0 +1,120 @@
+{% extends "Aplicacion/padre.html" %}
+{% load static %}
+
+{% block contenidoquecambiar %}
+    <style>
+        /* Estilos CSS personalizados para la página de recetas */
+        .hero {
+            background-image: url("{% static 'Aplicacion/img/recipe-bg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background-color: #F8C933;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .features {
+            background-color: #F8F8F8;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .feature-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #F8C933;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+    </style>
+
+    <!-- Hero Section for Recetas -->
+    <section class="hero text-white py-5">
+        <div class="container">
+            <h1 class="display-4 mb-4">Recetas saludables, ricas y faciles!</h1>
+            <p class="lead mb-4">"Que tu medicina sea tu alimento y el alimento tu medicina".</p>
+            {% if not user.is_authenticated %}
+                <p id="register-info" class="mb-0">Regístrate para tener acceso a más recetas y guardar tus favoritas.</p>
+                <a class="btn btn-lg" href="{% url 'registro' %}">Regístrate Gratis</a>
+            {% else %}
+                <a class="btn btn-lg" href="{% url 'lista_recetas' %}">Explora Nuestras Recetas</a>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Features Section for Recetas -->
+    <section class="features py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="feature-item text-center mb-4">
+                        <i class="bi bi-egg icon"></i>
+                        <h3>Variedad de Recetas</h3>
+                        <p>Explora una variedad de recetas de cocina, desde platos tradicionales a preparaciones sin gluten y veganas</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-item text-center mb-4">
+                        <i class="bi bi-egg icon"></i>
+                        <h3>Instrucciones Detalladas</h3>
+                        <p>Encuentra instrucciones detalladas para preparar tus comidas favoritas en casa.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-item text-center mb-4">
+                        <i class="bi bi-heart icon"></i>
+                        <h3>Platos Deliciosos</h3>
+                        <p>Disfruta de platos deliciosos y comparte tus recetas favoritas con otros amantes de la cocina.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+{% endblock %}

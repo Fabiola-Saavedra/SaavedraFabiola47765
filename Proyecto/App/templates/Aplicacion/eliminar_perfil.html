@@ -1,0 +1,22 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-4">Eliminar Cuenta</h1>
+            <p class="lead">Estás a punto de eliminar tu cuenta. Esta acción es irreversible, ¿estás seguro?</p>
+            <form action="" method="POST" class="delete-account-form">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-danger">Eliminar Cuenta</button>
+            </form>
+            <a href="{% url 'perfil' %}" class="btn btn-secondary mt-3">Cancelar y Volver a tu Perfil</a>
+        </div>
+    </div>
+</header>
+{% endblock %}

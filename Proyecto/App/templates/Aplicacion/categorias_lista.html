@@ -1,0 +1,42 @@
+{% extends "Aplicacion/padre.html" %}
+{% load static %}
+
+{% block contenidoquecambiar %}
+    <header class="py-5 bg-light border-bottom mb-4">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1>Lista de Categoria</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                    <th>Buscar mas en Internet</th>  <!-- Nueva columna -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td>{{ categoria.nombre }}</td>
+                        <td>{{ categoria.descripcion }}</td>
+                        <td>
+                            <a href="{% url 'crear_categoria' %}" class="btn btn-success">Crear Categoria</a>
+                            <a href="{% url 'editar_categoria' categoria.nombre %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'eliminar_categoria' categoria.nombre %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                        <td>
+                            <a href="https://www.google.com/search?q={{ categoria.nombre }}+información" class="btn btn-info" target="_blank">Buscar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'Inicio' %}" class="btn btn-secondary">Volver al Inicio</a>
+    </div>
+{% endblock %}

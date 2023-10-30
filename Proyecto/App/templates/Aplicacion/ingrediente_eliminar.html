@@ -1,0 +1,30 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1>Eliminar ingrediente</h1>
+            <p class="lead mb-0">¿Estás seguro de que deseas eliminar el ingrediente"{{ ingrediente.nombre }}"?</p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                    <a href="{% url 'lista_ingredientes' %}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

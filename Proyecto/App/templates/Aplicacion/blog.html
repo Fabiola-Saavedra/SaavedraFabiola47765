@@ -1,0 +1,85 @@
+{% extends "Aplicacion/padre.html" %}
+{% load static %}
+
+{% block contenidoquecambiar %}
+    <style>
+        /* Estilos personalizados para la página de recetas */
+        .recipe-list {
+            padding: 30px;
+            text-align: center; /* Centro de todo el contenido */
+        }
+
+        .recipe-card {
+            background: #f7f7f7;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe-img {
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .recipe-details {
+            padding: 20px;
+        }
+
+        .recipe-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .recipe-date {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .recipe-description {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .recipe-link {
+            margin-top: 20px;
+        }
+
+        .recipe-link a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .recipe-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="container recipe-list">
+        <h1 class="display-4">Nuestras Recetas</h1>
+        <div class="row">
+            {% for receta in recetas %}
+                <div class="col-md-4">
+                    <div class="recipe-card">
+                        <img src="{% static 'Aplicacion/img/recipe-bg.jpg' %}" class="recipe-img" alt="{{ receta.categoria }}">
+                        <div class="recipe-details">
+                            <h2 class="recipe-title">{{ receta.titulo }}</h2>
+                            <p class="recipe-date">{{ receta.fecha_publicacion|date:"F d, Y" }}</p>
+                            <p class="recipe-description">{{ receta.instrucciones|slice:":150" }}{% if receta.instrucciones|length > 150 %}...{% endif %}</p>
+                            <div class="recipe-link">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

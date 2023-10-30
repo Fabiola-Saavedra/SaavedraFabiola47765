@@ -1,0 +1,50 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<style>
+
+</style>
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-4">Editar Cuenta</h1>
+            <p class="lead">Actualiza la información de tu cuenta:</p>
+
+            <form action="" method="POST" class="account-edit-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+
+            <div class="account-links">
+                <a href="{% url 'perfil' %}" class="btn btn-secondary">Ir a tu Perfil</a>
+                <a href="{% url 'cambiar_contrasena' %}" class="btn btn-secondary">Cambiar Contraseña</a>
+                <a href="{% url 'eliminar_perfil' %}" class="btn btn-danger">Eliminar Cuenta</a>
+                <a href="{% url 'cerrar_sesion' %}" class="btn btn-secondary">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

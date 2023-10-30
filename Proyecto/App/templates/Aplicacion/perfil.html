@@ -1,0 +1,45 @@
+{% extends "Aplicacion/padre.html" %}
+{% load static %}
+
+{% block contenidoquecambiar %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <!-- Agrega el avatar del usuario -->
+            <img src="{{ request.user.userprofile.avatar.url }}" alt="{{ user.username }} Avatar" class="avatar-img">
+            <p>URL de la imagen: {{ user.userprofile.avatar.url }}</p>
+            <a href="{% url 'edit_avatar' %}" class="btn btn-secondary">Editar Avatar</a>
+            
+            <h1 class="display-4">¡Bienvenido, {{ user.username }}!</h1>
+            <p class="lead">Esta es la información de tu perfil:</p>
+            
+            <div class="profile-info">
+                {% if user.first_name %}
+                    <p><strong>Nombre:</strong> {{ user.first_name }}</p>
+                {% endif %}
+                {% if user.last_name %}
+                    <p><strong>Apellido:</strong> {{ user.last_name }}</p>
+                {% endif %}
+                {% if user.email %}
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                {% endif %}
+                <p><strong>Cuenta de staff:</strong> {{ user.is_staff }}</p>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="profile-actions">
+                <a href="{% url 'editar_perfil' %}" class="btn btn-primary">Editar Perfil</a>
+                <a href="{% url 'cambiar_contrasena' %}" class="btn btn-success">Cambiar Contraseña</a>
+                <a href="{% url 'eliminar_perfil' %}" class="btn btn-danger">Eliminar Cuenta</a>
+                <a href="{% url 'cerrar_sesion' %}" class="btn btn-secondary">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+</header>
+<style>
+    .avatar-img {
+        max-width: 150px; /* Ajusta el tamaño según tus preferencias */
+    }
+</style>
+{% endblock %}

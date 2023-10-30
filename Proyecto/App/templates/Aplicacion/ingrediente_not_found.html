@@ -1,0 +1,11 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<h1>Editorial no encontrado</h1>
+<p>La editorial que estás buscando no se encuentra en la base de datos.</p>
+<a href="{% url 'lista_editoriales' %}">Volver a la lista de Editorial</a>
+</body>
+</html>
+{% endblock %}

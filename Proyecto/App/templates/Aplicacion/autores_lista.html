@@ -1,0 +1,42 @@
+{% extends "Aplicacion/padre.html" %}
+{% load static %}
+
+{% block contenidoquecambiar %}
+    <header class="py-5 bg-light border-bottom mb-4">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1>Lista de Autores</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Biografia</th>
+                    <th>Acciones</th>
+                    <th>Buscar mas en internet</th>  <!-- Nueva columna -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for autor in autores %}
+                    <tr>
+                        <td>{{ autor.user }}</td>
+                        <td>{{ autor.biografia }}</td>
+                        <td>
+                            <a href="{% url 'crear_autor' %}" class="btn btn-success">Crear Autor</a>
+                            <a href="{% url 'editar_autor' autor.user %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'eliminar_autor' autor.user %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                        <td>
+                            <a href="https://www.google.com/search?q={{ autor.user }}+información" class="btn btn-info" target="_blank">Buscar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'Inicio' %}" class="btn btn-secondary">Volver al Inicio</a>
+    </div>
+{% endblock %}
